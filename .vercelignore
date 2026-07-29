@@ -1,0 +1,15 @@
+node_modules/
+.next/
+.vercel/
+.claude/
+
+.env
+.env.*
+!.env.example
+
+*.zip
+*.log
+*.tsbuildinfo
+next-env.d.ts
+
+New folder/
