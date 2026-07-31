@@ -1,0 +1,63 @@
+import type { RageMindXModuleDefinition } from "@/services/ragemind-x/types";
+
+export const RAGEMIND_X_PIPELINE = [
+  "intake-security",
+  "local-brain",
+  "understanding",
+  "memory",
+  "reasoning",
+  "judging",
+  "self-review",
+  "learning-ops",
+];
+
+export const RAGEMIND_X_MODULES: RageMindXModuleDefinition[] = [
+  { id: "brain-controller", name: "Brain Controller", category: "controller", stage: "intake-security", responsibility: "Coordinates every specialist module and merges their outputs into one explainable report.", canDegrade: false },
+  { id: "local-intelligence-brain", name: "Local Intelligence Brain", category: "controller", stage: "local-brain", responsibility: "Runs tokenizer, parser, embeddings, vector memory, offline RAG, reasoning, response planning, critic, local model adapter, and observability.", canDegrade: false },
+  { id: "security-engine", name: "Security Engine", category: "security", stage: "intake-security", responsibility: "Detects malformed inputs, prompt injection, poisoning attempts, unsafe escalation, and spam pressure.", canDegrade: false },
+  { id: "prompt-injection-defense", name: "Prompt Injection Defense", category: "security", stage: "intake-security", responsibility: "Flags attempts to override internal rules, reveal hidden prompts, or force unsafe behavior.", canDegrade: false },
+  { id: "anti-spam-engine", name: "Anti-Spam Engine", category: "security", stage: "intake-security", responsibility: "Detects repeated, empty, symbol-only, link-heavy, or flooding-style messages.", canDegrade: true },
+  { id: "afk-detection-engine", name: "AFK Detection Engine", category: "security", stage: "intake-security", responsibility: "Finds non-participation and low-effort reply patterns without punishing short valid language.", canDegrade: true },
+  { id: "language-detection-engine", name: "Language Detection Engine", category: "understanding", stage: "understanding", responsibility: "Detects English, Indian languages, Romanized forms, code switching, slang, and emoji language.", canDegrade: true },
+  { id: "multilingual-engine", name: "Multilingual Engine", category: "understanding", stage: "understanding", responsibility: "Normalizes mixed-language meaning so grammar and transliteration are not unfairly penalized.", canDegrade: true },
+  { id: "code-switching-engine", name: "Code Switching Engine", category: "understanding", stage: "understanding", responsibility: "Marks language switches and helps the judge interpret local phrasing by context.", canDegrade: true },
+  { id: "intent-engine", name: "Intent Engine", category: "understanding", stage: "understanding", responsibility: "Classifies questions, challenges, roasts, jokes, persuasion, trolling, and support intent.", canDegrade: true },
+  { id: "emotion-engine", name: "Emotion Engine", category: "understanding", stage: "understanding", responsibility: "Detects confidence, frustration, respect, excitement, fear, aggression, and humor signals.", canDegrade: true },
+  { id: "personality-engine", name: "Personality Engine", category: "understanding", stage: "understanding", responsibility: "Infers speaking style, confidence, creativity, aggression, and vocabulary tendencies.", canDegrade: true },
+  { id: "slang-engine", name: "Slang Engine", category: "understanding", stage: "understanding", responsibility: "Maps internet, gaming, Indian-English, and community slang to contextual meaning.", canDegrade: true },
+  { id: "meme-engine", name: "Meme Engine", category: "humor", stage: "understanding", responsibility: "Detects meme references and judges whether they add cultural density or filler.", canDegrade: true },
+  { id: "humor-engine", name: "Humor Engine", category: "humor", stage: "reasoning", responsibility: "Scores joke structure, timing, punchline density, callbacks, and playful exaggeration.", canDegrade: true },
+  { id: "sarcasm-engine", name: "Sarcasm Engine", category: "humor", stage: "reasoning", responsibility: "Detects mock praise, passive aggression, and tone flips.", canDegrade: true },
+  { id: "irony-engine", name: "Irony Engine", category: "humor", stage: "reasoning", responsibility: "Detects contradiction between literal words and intended meaning.", canDegrade: true },
+  { id: "double-meaning-engine", name: "Double Meaning Engine", category: "humor", stage: "reasoning", responsibility: "Separates figurative battle language from literal harm or harassment.", canDegrade: true },
+  { id: "roast-engine", name: "Roast Engine", category: "humor", stage: "reasoning", responsibility: "Measures roast effectiveness while separating friendly banter from harassment.", canDegrade: true },
+  { id: "context-engine", name: "Context Engine", category: "memory", stage: "memory", responsibility: "Tracks topic flow, callbacks, hidden intentions, repeated ideas, and momentum shifts.", canDegrade: true },
+  { id: "conversation-memory-engine", name: "Conversation Memory Engine", category: "memory", stage: "memory", responsibility: "Maintains active transcript memory, previous arguments, jokes, insults, and referenced objects.", canDegrade: true },
+  { id: "long-term-memory-engine", name: "Long-Term Memory Engine", category: "memory", stage: "memory", responsibility: "Produces approved long-term memory candidates without learning directly from live input.", canDegrade: true },
+  { id: "knowledge-engine", name: "Knowledge Engine", category: "understanding", stage: "understanding", responsibility: "Loads local versioned facts, rules, strategies, dictionaries, and knowledge packs.", canDegrade: true },
+  { id: "pattern-recognition-engine", name: "Pattern Recognition Engine", category: "reasoning", stage: "reasoning", responsibility: "Finds repeated patterns, topic drift, copy-paste, and stylistic signatures.", canDegrade: true },
+  { id: "reasoning-engine", name: "Reasoning Engine", category: "reasoning", stage: "reasoning", responsibility: "Combines literal, context, history, pattern, humor, battle, social, and strategic reasoning.", canDegrade: true },
+  { id: "logic-engine", name: "Logic Engine", category: "reasoning", stage: "reasoning", responsibility: "Finds evidence markers, contradictions, unsupported claims, and logical pressure.", canDegrade: true },
+  { id: "debate-engine", name: "Debate Engine", category: "reasoning", stage: "reasoning", responsibility: "Tracks arguments, counterarguments, fallacies, relevance, consistency, and topic drift.", canDegrade: true },
+  { id: "creativity-engine", name: "Creativity Engine", category: "reasoning", stage: "reasoning", responsibility: "Measures novelty, surprise, wordplay, callbacks, and non-recycled framing.", canDegrade: true },
+  { id: "user-modeling-engine", name: "User Modeling Engine", category: "learning", stage: "judging", responsibility: "Estimates skill, preferred language, style, aggression, speed, and improvement trend for gameplay adaptation.", canDegrade: true },
+  { id: "skill-estimation-engine", name: "Skill Estimation Engine", category: "learning", stage: "judging", responsibility: "Converts message quality and adaptation into a gameplay skill tier.", canDegrade: true },
+  { id: "difficulty-controller", name: "Difficulty Controller", category: "learning", stage: "judging", responsibility: "Selects bot or challenge difficulty without manipulating player behavior.", canDegrade: true },
+  { id: "toxicity-balance-engine", name: "Toxicity Balance Engine", category: "judging", stage: "judging", responsibility: "Balances safe roasting, edgy humor, harassment, threats, hate, and fairness risk.", canDegrade: true },
+  { id: "bias-detection-engine", name: "Bias Detection Engine", category: "judging", stage: "judging", responsibility: "Prevents language, grammar, accent, gender, or cultural-expression bias from affecting scores.", canDegrade: true },
+  { id: "fairness-engine", name: "Fairness Engine", category: "judging", stage: "judging", responsibility: "Produces judge guidance and fairness warnings for mixed language and safety-sensitive context.", canDegrade: true },
+  { id: "winner-prediction-engine", name: "Winner Prediction Engine", category: "judging", stage: "judging", responsibility: "Predicts likely winner from explainable local scoring factors.", canDegrade: true },
+  { id: "confidence-engine", name: "Confidence Engine", category: "judging", stage: "judging", responsibility: "Estimates reliability from evidence volume, module health, ambiguity, and safety risk.", canDegrade: true },
+  { id: "ai-judge", name: "AI Judge", category: "judging", stage: "judging", responsibility: "Transforms specialist signals into weighted, explainable scoring guidance.", canDegrade: true },
+  { id: "ai-critic", name: "AI Critic", category: "judging", stage: "self-review", responsibility: "Challenges the first-pass verdict for contradictions, thin evidence, and overconfident claims.", canDegrade: true },
+  { id: "ai-self-reviewer", name: "AI Self Reviewer", category: "judging", stage: "self-review", responsibility: "Runs final contradiction, hallucination, offense, clarity, humor, and confidence checks.", canDegrade: true },
+  { id: "response-planner", name: "Response Planner", category: "generation", stage: "self-review", responsibility: "Plans any generated answer before text is emitted.", canDegrade: true },
+  { id: "response-generator", name: "Response Generator", category: "generation", stage: "self-review", responsibility: "Generates local deterministic summaries and future adapter outputs.", canDegrade: true },
+  { id: "learning-engine", name: "Learning Engine", category: "learning", stage: "learning-ops", responsibility: "Queues completed conversations for offline review; live user input is never trusted directly.", canDegrade: true },
+  { id: "monitoring-engine", name: "Monitoring Engine", category: "operations", stage: "learning-ops", responsibility: "Records module timings, health, degraded modules, and safety telemetry.", canDegrade: true },
+  { id: "analytics-engine", name: "Analytics Engine", category: "operations", stage: "learning-ops", responsibility: "Aggregates confidence trends, language stats, judge quality, bias reports, and unknown slang.", canDegrade: true },
+];
+
+export const RAGEMIND_X_MODULE_BY_ID = Object.fromEntries(
+  RAGEMIND_X_MODULES.map((module) => [module.id, module])
+) as Record<string, RageMindXModuleDefinition>;
